@@ -1,0 +1,10 @@
+{
+  "name": "bidder",
+  "version": "3.0.0",
+  "private": true,
+  "dependencies": {
+  },
+  "scripts": {
+    "start": "node app.js"
+  }
+}

@@ -1,0 +1,40 @@
+{
+    "uuid": "BID_UUID",
+    "tag_id": "TAG_ID",
+    "auction_id": "6249467170603590729",
+    "nobid": false,
+    "no_ad_url": "",
+    "timeout_ms": 0,
+    "ad_profile_id": 1182765,
+    "rtb_video_fallback": false,
+    "ads": [
+    {
+        "content_source": "rtb",
+        "ad_type": "banner",
+        "buyer_member_id": 9325,
+        "advertiser_id": 2529885,
+        "creative_id": 96846035,
+        "media_type_id": 1,
+        "media_subtype_id": 1,
+        "cpm": 0.10,
+        "is_bin_price_applied": false,
+        "publisher_currency_code": "$",
+        "brand_category_id": 0,
+        "client_initiated_ad_counting": true,
+        "rtb":
+        {
+            "banner":
+            {
+                "content": "<!-- Creative 96846035 served by Member 9325 via 1Ad4Good.org --><a href=\"https://www.fatherhood.gov/\" target=\"_blank\"><img width=\"300\" height=\"250\" style=\"border-style: none\" src=\"https://1ad4good.s3-us-west-1.amazonaws.com/adc-ic3-dance-dad1-300x250-eng-static.jpg\"/></a>",
+                "width": 300,
+                "height": 250
+            },
+            "trackers": [
+            {
+                "impression_urls": [],
+                "video_events":
+                {}
+            }]
+        }
+    }]
+}
