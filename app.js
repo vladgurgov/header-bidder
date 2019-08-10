@@ -32,7 +32,7 @@ function fillBidResponse(tag, bidResponseTemplate) {
     bidResponseTemplate.uuid = tag.uuid;
     bidResponseTemplate.tag_id = tag.id;
     if (tag.cpm && bidResponseTemplate.ads && bidResponseTemplate.ads[0] && bidResponseTemplate.ads[0].cpm){
-        bidResponseTemplate.ads[0].cpm
+        bidResponseTemplate.ads[0].cpm = tag.cpm;
     }
     return bidResponseTemplate;
 }
