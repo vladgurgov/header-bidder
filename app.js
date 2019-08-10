@@ -5,9 +5,9 @@ var port = process.env.PORT || 80;
 const path = '/prebid';
 const healthcheck = '/healthcheck';
 
-const bidResponseTemplate = require('./bidResponse.stub.json');
+const bidResponseTemplate = JSON.stringify(require('./bidResponse.stub.json'));
 const supporteMedia = { "banner-300x250": bidResponseTemplate };
-const noBidTemplate = require('./nobid.stub.json');
+const noBidTemplate = JSON.stringify(require('./nobid.stub.json'));
 
 
 // gets array of all possible media combination like ['banner-300x250','banner-300x600] that would satisfy request
@@ -41,15 +41,15 @@ function fillBidResponse(tag, bidResponseTemplate) {
 function generateBidResponse(tag) {
     var requestedKeys = getTagKeys(tag);
     if (requestedKeys.length == 0) {
-        return fillBidResponse(tag, noBidTemplate);
+        return fillBidResponse(tag, JSON.parse(noBidTemplate));
     }
     for (key of requestedKeys) {
         if (supporteMedia[key]) {
-            var filled = fillBidResponse(tag, supporteMedia[key]);
+            var filled = fillBidResponse(tag, JSON.parse(supporteMedia[key]));
             return filled;
         }
     }
-    return fillBidResponse(tag, noBidTemplate);
+    return fillBidResponse(tag, JSON.parse(noBidTemplate));
 }
 // bid or nobid on each tag in bidRequest
 function respondToAllTag(bidRequest) {
