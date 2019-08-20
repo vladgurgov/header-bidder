@@ -6,7 +6,12 @@ const path = '/prebid';
 const healthcheck = '/healthcheck';
 
 const bidResponseTemplate = JSON.stringify(require('./bidResponse.stub.json'));
-const supporteMedia = { "banner-300x250": bidResponseTemplate };
+const bidResponseVideoTemplate = JSON.stringify(require('./bidResponseVideo.stub.json'));
+
+const supporteMedia = { 
+    "banner-300x250": bidResponseTemplate,
+    "video": bidResponseVideoTemplate
+};
 const noBidTemplate = JSON.stringify(require('./nobid.stub.json'));
 
 
@@ -36,7 +41,18 @@ function fillBidResponse(tag, bidResponseTemplate) {
     }
     return bidResponseTemplate;
 }
-
+function isKeySupported(query){
+    if (query) {
+        var resp = null;
+        Object.keys(supporteMedia).forEach(function(sKey){
+            if (query.startsWith(sKey)){
+                resp = supporteMedia[sKey];
+            }
+        });
+        return resp;
+    }
+    return
+}
 // based on whats requested in bidrequest for given tag and whats available on server (supporteMedia) -- respond to each tag - with either bid or nobid
 function generateBidResponse(tag) {
     var requestedKeys = getTagKeys(tag);
@@ -44,8 +60,9 @@ function generateBidResponse(tag) {
         return fillBidResponse(tag, JSON.parse(noBidTemplate));
     }
     for (key of requestedKeys) {
-        if (supporteMedia[key]) {
-            var filled = fillBidResponse(tag, JSON.parse(supporteMedia[key]));
+        var response = isKeySupported(key);
+        if (response) {
+            var filled = fillBidResponse(tag, JSON.parse(response));
             return filled;
         }
     }

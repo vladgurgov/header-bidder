@@ -1,0 +1,40 @@
+{
+    "uuid": "BID_UUID",
+    "tag_id": "TAG_ID",
+    "auction_id": "3068920879440457748",
+    "nobid": false,
+    "no_ad_url": "",
+    "timeout_ms": 0,
+    "ad_profile_id": 1183421,
+    "rtb_video_fallback": false,
+    "ads": [
+    {
+            "content_source": "rtb",
+            "ad_type": "video",
+            "notify_url": "",
+            "usersync_url": "",
+            "buyer_member_id": 9325,
+            "advertiser_id": 2529885,
+            "creative_id": 97517771,
+            "media_type_id": 4,
+            "media_subtype_id": 64,
+            "cpm": 5.00,
+            "cpm_publisher_currency": 5.000000,
+            "is_bin_price_applied": false,
+            "publisher_currency_code": "$",
+            "brand_category_id": 36,
+            "client_initiated_ad_counting": true,
+            "rtb":
+            {
+                "video":
+                {
+                    "player_width": 640,
+                    "player_height": 480,
+                    "duration_ms": 30000,
+                    "playback_methods": ["auto_play_sound_on"],
+                    "frameworks": ["vpaid_1_0", "vpaid_2_0"],
+                    "asset_url": "https://1ad4good.s3-us-west-1.amazonaws.com/theshelterpetproject.org/vast.xml"
+                }
+            }
+    }]
+}
